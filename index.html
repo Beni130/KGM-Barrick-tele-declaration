@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KGM / Barrick Télé-déclaration IPR – </title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/kibali-gold-mineslogo2.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+
+  <!-- Custom styles — path options (uncomment whichever matches your folder layout) -->
+  <!-- <link rel="stylesheet" href="style.css"> -->        <!-- same folder -->
+  <!-- <link rel="stylesheet" href="css/style.css"> -->    <!-- inside /css subfolder -->
+
+  <style>
+/* =============================================
+   BARRICK / KIBALI GOLD MINE – Design System
+   Color Palette:
+     Gold (Primary):    #C9922A
+     Deep Gold:         #A0711A
+     Dark Anthracite:   #1A1C22
+     Mine Charcoal:     #2C2F38
+     Earth Brown:       #3D2B1F
+     Warm Cream:        #F5EDD8
+     Light Sand:        #FAF4E8
+     Text Dark:         #1A1C22
+     Text Muted:        #6B6F7A
+   ============================================= */
+
+:root {
+  --gold:         #C9922A;
+  --gold-deep:    #A0711A;
+  --gold-light:   #E8B84B;
+  --gold-pale:    #F5D98A;
+  --anthracite:   #1A1C22;
+  --charcoal:     #2C2F38;
+  --earth:        #3D2B1F;
+  --cream:        #F5EDD8;
+  --sand:         #FAF4E8;
+  --text-dark:    #1A1C22;
+  --text-muted:   #6B6F7A;
+  --white:        #FFFFFF;
+  --border:       rgba(201, 146, 42, 0.25);
+  --shadow-gold:  0 4px 32px rgba(201, 146, 42, 0.18);
+  --shadow-dark:  0 8px 40px rgba(26, 28, 34, 0.22);
+}
+
+/* ── Base ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--sand);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/* ── Typography helpers ───────────────────── */
+.text-gold  { color: var(--gold); }
+.text-dark  { color: var(--text-dark); }
+.text-muted { color: var(--text-muted); }
+.text-white { color: var(--white); }
+
+/* ── Backgrounds ──────────────────────────── */
+.bg-sand       { background-color: var(--sand); }
+.bg-cream      { background-color: var(--cream); }
+.bg-anthracite { background-color: var(--anthracite); }
+.bg-charcoal   { background-color: var(--charcoal); }
+.bg-gold       { background-color: var(--gold); }
+
+/* ── Buttons ──────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.5rem; padding: 0.75rem 2rem; border-radius: 999px;
+  font-weight: 600; font-size: 0.875rem; cursor: pointer; border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn:hover  { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+  color: var(--white);
+  box-shadow: 0 4px 18px rgba(201,146,42,0.35);
+}
+.btn-gold:hover { box-shadow: 0 8px 28px rgba(201,146,42,0.50); }
+
+.btn-outline {
+  background: transparent; color: var(--gold); border: 2px solid var(--gold);
+}
+.btn-outline:hover { background: var(--gold); color: var(--white); }
+
+.btn-ghost {
+  background: rgba(255,255,255,0.12); color: var(--white);
+  border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(6px);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.22); }
+
+/* ── Cards ────────────────────────────────── */
+.card {
+  background: var(--white); border-radius: 1.25rem;
+  box-shadow: var(--shadow-dark); padding: 2rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(26,28,34,0.18); }
+
+.card-icon {
+  width: 4rem; height: 4rem; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: -4.5rem auto 1.5rem; box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+/* ── Layout helpers ───────────────────────── */
+.section    { padding: 5rem 0; }
+.section-sm { padding: 3rem 0; }
+.container  { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+.section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; }
+.section-label::before {
+  content: ''; display: block; width: 2.5rem; height: 2px;
+  background: var(--gold); border-radius: 2px;
+}
+.section-label span {
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em;
+  color: var(--gold); text-transform: uppercase;
+}
+
+/* ── Navbar ───────────────────────────────── */
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(26,28,34,0.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,146,42,0.15);
+}
+.navbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.5rem; max-width: 1200px; margin: 0 auto;
+}
+.navbar-logo { font-size: 1.2rem; font-weight: 700; color: var(--white); letter-spacing: 0.04em; }
+.navbar-logo span { color: var(--gold); }
+
+.navbar-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; }
+.navbar-links a {
+  padding: 0.5rem 1rem; color: rgba(255,255,255,0.75); font-size: 0.875rem;
+  font-weight: 500; border-radius: 0.5rem; transition: color 0.2s, background 0.2s;
+}
+.navbar-links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 0.25rem;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px; background: var(--white);
+  border-radius: 2px; transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; flex-direction: column; background: var(--charcoal);
+  padding: 1rem 1.5rem 1.5rem; border-top: 1px solid rgba(201,146,42,0.15);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 0.75rem 0; color: rgba(255,255,255,0.8); font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu a:last-child { border-bottom: none; }
+
+/* ── Hero ─────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--anthracite) 0%, var(--charcoal) 50%, var(--earth) 100%);
+  position: relative; overflow: hidden; padding: 5rem 0 4rem;
+}
+.hero::before {
+  content: ''; position: absolute; top: -40%; right: -10%;
+  width: 60%; height: 120%;
+  background: radial-gradient(ellipse, rgba(201,146,42,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+  background: linear-gradient(to bottom right, var(--anthracite) 50%, transparent 50%);
+  pointer-events: none;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 4rem; position: relative; z-index: 1;
+}
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 700;
+  color: var(--white); line-height: 1.2; margin-bottom: 1.25rem;
+}
+.hero-title .gold { color: var(--gold); }
+.hero-desc { color: rgba(255,255,255,0.7); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; }
+.hero-img-wrap { position: relative; }
+.hero-img-wrap img { border-radius: 1.5rem; box-shadow: var(--shadow-gold); object-fit: cover; width: 100%; }
+.hero-badge {
+  position: absolute; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+  border-radius: 0.75rem; padding: 0.6rem 1rem; box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.75rem; font-weight: 600; color: var(--text-dark);
+}
+.hero-badge .dot {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--gold);
+  flex-shrink: 0; animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.4); opacity: 0.7; }
+}
+
+/* ── Logos strip ──────────────────────────── */
+.logos-strip {
+  background: var(--white); padding: 2.5rem 1.5rem;
+  border-top: 1px solid rgba(201,146,42,0.12);
+  border-bottom: 1px solid rgba(201,146,42,0.12);
+}
+.logos-label {
+  text-align: center; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.5rem;
+}
+.logos-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2.5rem; }
+.logos-row img { height: 2rem; opacity: 0.6; filter: grayscale(1); transition: opacity 0.2s, filter 0.2s; }
+.logos-row img:hover { opacity: 1; filter: none; }
+
+/* ── Feature cards ────────────────────────── */
+.features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; padding-top: 3.5rem; }
+
+/* ── Info 2-col ───────────────────────────── */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.info-grid.reverse { direction: rtl; }
+.info-grid.reverse > * { direction: ltr; }
+
+/* ── Team ─────────────────────────────────── */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 2rem; }
+.team-card { border-radius: 1.25rem; overflow: hidden; position: relative; box-shadow: var(--shadow-dark); }
+.team-card img { width: 100%; height: 320px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.team-card:hover img { transform: scale(1.04); }
+.team-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,28,34,0.92) 0%, transparent 55%);
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem;
+}
+.team-name  { color: var(--white); font-weight: 700; font-size: 1rem; margin-bottom: 0.35rem; }
+.team-role  {
+  display: inline-block; padding: 0.25rem 0.9rem; background: rgba(201,146,42,0.85);
+  border-radius: 999px; font-size: 0.72rem; font-weight: 600; color: var(--white); margin-bottom: 0.4rem;
+}
+.team-contact { font-size: 0.75rem; color: rgba(255,255,255,0.65); }
+
+/* ── News ─────────────────────────────────── */
+.news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+.news-tag {
+  display: inline-block; padding: 0.2rem 0.8rem; border-radius: 999px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--gold-pale); color: var(--earth); margin-bottom: 0.75rem;
+}
+.news-main-img { width: 100%; border-radius: 1rem; height: 260px; object-fit: cover; margin-bottom: 1.25rem; }
+.news-item {
+  display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0;
+  border-bottom: 1px solid rgba(201,146,42,0.12);
+}
+.news-item:last-child { border-bottom: none; }
+.news-thumb { flex-shrink: 0; width: 90px; height: 70px; border-radius: 0.6rem; object-fit: cover; }
+.news-item-text h3 { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.35rem; line-height: 1.4; }
+.news-item-text p  { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
+
+/* ── Testimonial ──────────────────────────── */
+.testimonial-block {
+  background: linear-gradient(135deg, var(--anthracite), var(--charcoal));
+  border-radius: 1.5rem; padding: 3rem; color: var(--white); position: relative; overflow: hidden;
+}
+.testimonial-block::before {
+  content: '"'; position: absolute; top: -1rem; left: 1.5rem;
+  font-size: 10rem; color: rgba(201,146,42,0.12);
+  font-family: Georgia, serif; line-height: 1; pointer-events: none;
+}
+
+/* ── Footer ───────────────────────────────── */
+.footer {
+  background: var(--anthracite); color: rgba(255,255,255,0.7);
+  padding: 4rem 0 2rem; border-top: 2px solid rgba(201,146,42,0.25);
+}
+.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand h2 { color: var(--white); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; }
+.footer-brand h2 span { color: var(--gold); }
+.footer-brand p  { font-size: 0.85rem; line-height: 1.7; }
+.footer-col h4   { color: var(--white); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+.footer-col ul   { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-col ul a { font-size: 0.85rem; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--gold); }
+
+.newsletter-form { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+.newsletter-form input {
+  flex: 1; min-width: 0; padding: 0.6rem 1rem; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.07);
+  color: var(--white); font-size: 0.85rem; outline: none; transition: border-color 0.2s;
+}
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+.newsletter-form input:focus { border-color: var(--gold); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.35);
+}
+
+/* ── Decorative helpers ───────────────────── */
+.gold-line {
+  width: 3rem; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px; margin-bottom: 1rem;
+}
+
+.floating      { animation: float 3s ease-in-out infinite; }
+.floating-slow { animation: float 4.5s ease-in-out infinite; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(10px); }
+}
+
+/* ── Utility ──────────────────────────────── */
+.text-center { text-align: center; }
+.mx-auto     { margin-left: auto; margin-right: auto; }
+.mt-3  { margin-top: 0.75rem; }
+.mt-4  { margin-top: 1rem; }
+.mb-4  { margin-bottom: 1rem; }
+.mb-6  { margin-bottom: 1.5rem; }
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 1024px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .hamburger     { display: flex; }
+  .navbar-links  { display: none; }
+  .hero-grid     { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero          { padding: 4rem 0 3rem; }
+  .hero::after   { display: none; }
+  .features-grid { grid-template-columns: 1fr; }
+  .info-grid     { grid-template-columns: 1fr; gap: 2rem; }
+  .info-grid.reverse { direction: ltr; }
+  .news-grid     { grid-template-columns: 1fr; }
+  .footer-inner  { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .testimonial-block { padding: 2rem; }
+}
+@media (max-width: 480px) {
+  .section    { padding: 3.5rem 0; }
+  .hero-title { font-size: 1.75rem; }
+  .btn        { padding: 0.65rem 1.4rem; font-size: 0.8rem; }
+  .team-grid  { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════ -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="navbar-logo">Kibali Gold Mine <span>IPR</span></a>
+
+      <ul class="navbar-links">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#about">À Propos</a></li>
+        <li><a href="#team">Équipe</a></li>
+        <li><a href="#news">Actualités</a></li>
+        <li>
+</li>
+<li>
+  <a href="https://forms.gle/jNNufij8Ytuwcea68" class="btn btn-gold" style="padding:0.45rem 1.25rem;font-size:0.8rem;">
+    S'inscrire
+  </a>
+</li>
+
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="#">Accueil</a>
+      <a href="#about">À Propos</a>
+      <a href="#team">Équipe</a>
+      <a href="#news">Actualités</a>
+      <a href="#contact">Connexion</a>
+      <a href="#" class="btn btn-gold mt-3" style="width:fit-content;">S'inscrire</a>
+    </nav>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left -->
+        <div data-aos="fade-right" data-aos-once="true">
+          <div class="section-label" style="margin-bottom:1rem;">
+            <span>Kibali Gold Mine · Barrick</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="gold">La Télé-déclaration</span><br>IPR en RDC
+          </h1>
+          <p class="hero-desc">
+            L'obligation pour les employeurs de déclarer en ligne les Impôts Professionnels sur les Rémunérations (IPR) via la plateforme de la Direction Générale des Impôts (DGI). Un outil clé pour calculer et reverser les cotisations fiscales sur les salaires des employés.
+          </p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="#about" class="btn btn-gold">Découvrir la plateforme</a>
+            <a href="#team" class="btn btn-ghost">Voir l'équipe</a>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="hero-img-wrap floating-slow" data-aos="fade-up" data-aos-once="true">
+          <img src="images/kibali1.png" alt="Kibali Gold Mine">
+          <div class="hero-badge" style="bottom:1.5rem;left:-1rem;">
+            <span class="dot"></span>
+            Mine en exploitation active
+          </div>
+          <div class="hero-badge" style="top:1.5rem;right:-0.75rem;">
+            <svg style="width:14px;height:14px;color:#C9922A;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            Haut-Uélé, DR Congo
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       LOGOS STRIP
+  ═══════════════════════════════════════ -->
+  <div class="logos-strip">
+    <p class="logos-label">Kibali Gold Mine — Partenaires de confiance</p>
+    <div class="logos-row">
+      <img src="images/barrick1.png" alt="Barrick">
+      <img src="images/kibali-gold-mineslogo2.png" alt="Kibali Gold Mine">
+      <img src="images/sokimo1.png" alt="Sokimo">
+      <img src="images/ashanti.png" alt="Ashanti">
+      <img src="images/MD1.png" alt="MD1">
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       ABOUT / FEATURES
+  ═══════════════════════════════════════ -->
+  <section class="section bg-sand" id="about">
+    <div class="container">
+
+      <div data-aos="fade-up" data-aos-once="true" class="text-center" style="max-width:680px;margin:0 auto 1rem;">
+        <div class="gold-line mx-auto"></div>
+        <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--text-dark);margin-bottom:0.75rem;">
+          Accès plateforme &amp; Contenu déclaration
+          <span class="text-gold">TVA DGI</span>
+        </h2>
+        <p class="text-muted" style="line-height:1.75;">
+          Les entreprises soumettent la déclaration mensuelle sur le portail de télé-déclaration de la DGI, en indiquant le nombre de travailleurs, les rémunérations brutes et nettes imposables, accompagnées de notes explicatives pour les services comme la CNSS.
+        </p>
+      </div>
+
+      <!-- Cards -->
+      <div class="features-grid">
+
+        <div data-aos="fade-up" data-aos-once="true" class="card text-center" style="padding-top:3.5rem;">
+          <div class="card-icon bg-charcoal">
+            <!-- Tax / doc icon -->
+            <svg class="text-gold" style="width:1.5rem;height:1.5rem;" fill="currentColor" viewBox="0 0 33 46"><path d="M24.75 23H8.25V28.75H24.75V23ZM32.3984 9.43L23.985.629C23.598.225 23.074 0 22.524 0H22v11.5H33V10.952C33 10.386 32.785 9.838 32.398 9.434ZM19.25 12.219V0H2.063C.92 0 0 .961 0 2.156v41.688C0 45.039.92 46 2.063 46H30.938C32.08 46 33 45.039 33 43.844V14.375H21.313C20.178 14.375 19.25 13.405 19.25 12.219ZM5.5 6.469c0-.397.308-.719.688-.719h6.875c.379 0 .687.322.687.719v1.437c0 .397-.308.719-.687.719H6.188c-.38 0-.688-.322-.688-.719V6.47ZM5.5 12.219c0-.397.308-.719.688-.719h6.875c.379 0 .687.322.687.719v1.437c0 .397-.308.719-.687.719H6.188c-.38 0-.688-.322-.688-.719v-1.437ZM27.5 39.531c0 .397-.308.719-.688.719h-6.875c-.379 0-.687-.322-.687-.719v-1.437c0-.397.308-.719.687-.719h6.875c.38 0 .688.322.688.719v1.437ZM27.5 21.563v8.624c0 .795-.615 1.438-1.375 1.438H6.875C6.115 31.625 5.5 30.982 5.5 30.187v-8.624c0-.795.615-1.438 1.375-1.438h18.75c.76 0 1.375.643 1.375 1.438Z" fill="currentColor"/></svg>
+          </div>
+          <h3 style="font-weight:600;font-size:1.05rem;margin-bottom:0.75rem;color:var(--text-dark);">Rôle pour l'État</h3>
+          <p class="text-muted" style="font-size:0.88rem;line-height:1.7;">C'est une des principales ressources fiscales de l'État pour financer services publics, infrastructures et salaires des fonctionnaires.</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="card text-center" style="padding-top:3.5rem;">
+          <div class="card-icon bg-gold">
+            <!-- Calendar icon -->
+            <svg style="width:1.4rem;height:1.4rem;" fill="white" viewBox="0 0 48 48"><path d="M42.857 5.143H37.714V1.714A1.714 1.714 0 0036 0a1.714 1.714 0 00-1.714 1.714v3.429H13.714V1.714A1.714 1.714 0 0012 0a1.714 1.714 0 00-1.714 1.714v3.429H5.143A5.143 5.143 0 000 10.286v32.571A5.143 5.143 0 005.143 48H42.857A5.143 5.143 0 0048 42.857V10.286a5.143 5.143 0 00-5.143-5.143ZM44.571 42.857a1.714 1.714 0 01-1.714 1.714H5.143a1.714 1.714 0 01-1.714-1.714V20.571H44.57v22.286Z"/></svg>
+          </div>
+          <h3 style="font-weight:600;font-size:1.05rem;margin-bottom:0.75rem;color:var(--text-dark);">Obligations légales</h3>
+          <p class="text-muted" style="font-size:0.88rem;line-height:1.7;">La déclaration annuelle récapitulative est obligatoire. En cas de retard, l'employeur s'expose à pénalités, amendes et contrôles fiscaux renforcés.</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="card text-center" style="padding-top:3.5rem;">
+          <div class="card-icon" style="background:#2C2F38;">
+            <!-- People icon -->
+            <svg style="width:1.5rem;height:1.5rem;" fill="#C9922A" viewBox="0 0 55 44"><path d="M8.25 19.25c3.033 0 5.5-2.466 5.5-5.5s-2.467-5.5-5.5-5.5-5.5 2.466-5.5 5.5 2.467 5.5 5.5 5.5Zm38.5 0c3.033 0 5.5-2.466 5.5-5.5s-2.467-5.5-5.5-5.5-5.5 2.466-5.5 5.5 2.467 5.5 5.5 5.5ZM49.5 22H44c-1.513 0-2.879.61-3.876 1.598C43.588 25.498 46.045 28.927 46.578 33H52.25C53.771 33 55 31.771 55 30.25V27.5C55 24.466 52.534 22 49.5 22ZM27.5 22c5.319 0 9.625-4.305 9.625-9.625S32.819 2.75 27.5 2.75 17.875 7.055 17.875 12.375 22.181 22 27.5 22Zm6.6 2.75H33.387c-1.788.859-3.773 1.375-5.887 1.375s-4.09-.516-5.887-1.375H20.9C15.434 24.75 11 29.184 11 34.65V37.125C11 39.402 12.848 41.25 15.125 41.25H39.875C42.152 41.25 44 39.402 44 37.125V34.65C44 29.184 39.566 24.75 34.1 24.75ZM14.876 23.598A7.382 7.382 0 0011 22H5.5C2.466 22 0 24.466 0 27.5v2.75C0 31.771 1.229 33 2.75 33H8.413c.541-4.073 2.999-7.502 6.463-9.402Z"/></svg>
+          </div>
+          <h3 style="font-weight:600;font-size:1.05rem;margin-bottom:0.75rem;color:var(--text-dark);">Sécurité des travailleurs</h3>
+          <p class="text-muted" style="font-size:0.88rem;line-height:1.7;">Une IPR correctement déclarée prouve que les impôts sur salaires ont été payés, protégeant ainsi les salariés contre des redressements ultérieurs.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       IMPORTANCE IPR (2-col)
+  ═══════════════════════════════════════ -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="info-grid">
+
+        <div data-aos="fade-right" data-aos-once="true">
+          <div class="section-label"><span>Importance</span></div>
+          <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--text-dark);margin-bottom:1rem;">
+            Pourquoi l'<span class="text-gold">IPR</span> est essentiel
+          </h2>
+          <p class="text-muted" style="line-height:1.8;margin-bottom:1.25rem;">
+            L'IPR (Impôt Professionnel sur les Rémunérations) est crucial parce qu'il finance l'État, sécurise l'employeur sur le plan légal et social, et protège aussi le travailleur en régularisant sa situation fiscale.
+          </p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;">
+            <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+              <span style="width:20px;height:20px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+                <svg style="width:10px;height:10px;" fill="white" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-muted" style="font-size:0.9rem;">Financement des services publics et infrastructures</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+              <span style="width:20px;height:20px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+                <svg style="width:10px;height:10px;" fill="white" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-muted" style="font-size:0.9rem;">Protection légale et sociale de l'employeur</span>
+            </li>
+            <li style="display:flex;align-items:flex-start;gap:0.75rem;">
+              <span style="width:20px;height:20px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+                <svg style="width:10px;height:10px;" fill="white" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              </span>
+              <span class="text-muted" style="font-size:0.9rem;">Régularisation de la situation fiscale des employés</span>
+            </li>
+          </ul>
+        </div>
+
+        <div data-aos="fade-left" data-aos-once="true" style="position:relative;">
+          <img src="images/kibali-gold-mineslogo2.png" alt="Kibali Gold Mine Logo"
+               style="border-radius:1.25rem;box-shadow:var(--shadow-gold);width:100%;max-height:380px;object-fit:contain;background:white;padding:2rem;">
+          <div style="position:absolute;bottom:-1rem;right:-1rem;width:5rem;height:5rem;border-radius:1rem;background:var(--gold);opacity:0.15;"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       TEAM
+  ═══════════════════════════════════════ -->
+  <section class="section bg-sand" id="team">
+    <div class="container">
+
+      <div data-aos="fade-up" data-aos-once="true" class="text-center" style="max-width:560px;margin:0 auto 3rem;">
+        <div class="gold-line mx-auto"></div>
+        <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--text-dark);margin-bottom:0.5rem;">Notre Équipe</h2>
+        <p class="text-muted" style="font-size:0.9rem;">Les ingénieurs et spécialistes derrière la plateforme télé-déclaration IPR.</p>
+      </div>
+
+      <!-- Chef du projet – featured -->
+      <div data-aos="zoom-in" data-aos-once="true" style="background:linear-gradient(135deg,var(--anthracite),var(--charcoal));border-radius:1.5rem;padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:2.5rem;">
+        <div>
+          <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);">Chef de Projet</span>
+          <h3 style="font-size:1.5rem;font-weight:700;color:white;margin:0.5rem 0 1rem;">Mr Guylain Angombea Agbissa</h3>
+          <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;line-height:1.75;margin-bottom:1.5rem;">Senior Analyste des Systèmes RH, responsable de la configuration, maintenance et amélioration continue des systèmes RH de l'organisation (HRIS, HCM, ATS), en veillant à l'intégrité des données et à l'efficacité des processus RH.</p>
+          <a href="https://www.memoireonline.com/03/19/10622/Marche-immobilier-electronique-avec-geolocalisation-des-produits-en-RDC.html" class="btn btn-gold" style="width:fit-content;">Voir le profil</a>
+        </div>
+        <div style="position:relative;">
+          <div style="width:100px;height:100px;border-radius:1rem;background:var(--gold);opacity:0.2;position:absolute;top:-1rem;left:-1rem;"></div>
+          <img src="images/guy1.png" alt="Guylain Angombea" style="border-radius:1.25rem;width:100%;object-fit:cover;height:280px;position:relative;z-index:1;">
+          <div style="width:80px;height:80px;border-radius:1rem;background:var(--gold);opacity:0.25;position:absolute;bottom:-1rem;right:-1rem;"></div>
+        </div>
+      </div>
+
+      <!-- Team grid -->
+      <div class="team-grid">
+
+        <div data-aos="fade-up" data-aos-once="true" class="team-card">
+          <img src="images/lucien.png" alt="Lucien Sengi">
+          <div class="team-overlay">
+            <div class="team-role">Ingénieur Informaticien</div>
+            <div class="team-name">Mr LUCIEN SENGI</div>
+            <div class="team-contact">Email: luciensengi7@gmail.com</div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true" class="team-card">
+          <img src="images/ben.png" alt="Boby Beni">
+          <div class="team-overlay">
+            <div class="team-role">Ingénieur Informaticien Polyvalent</div>
+            <div class="team-name">Mr BENI BOBY</div>
+            <div class="team-contact">Email: bobybenis37@gmail.com</div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="200" data-aos-once="true" class="team-card">
+          <img src="images/Kulidri1.png" alt="Lucien Kulidri">
+          <div class="team-overlay">
+            <div class="team-role">IT Help Desk – Réseau &amp; Télécoms</div>
+            <div class="team-name">Mr LUCIEN KULIDRI</div>
+            <div class="team-contact">Email: abiaslucien@gmail.com</div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="300" data-aos-once="true" class="team-card">
+          <img src="images/chefmax.png" alt="Maxence Tamile">
+          <div class="team-overlay">
+            <div class="team-role">Chef d'Équipe – BDD &amp; Gestion</div>
+            <div class="team-name">Mr MAXENCE TAMILE</div>
+            <div class="team-contact">Email: dixonlolo1960@gmail.com</div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="400" data-aos-once="true" class="team-card">
+          <img src="images/rose.png" alt="Malick Rose">
+          <div class="team-overlay">
+            <div class="team-role">Ingénieure – Informatique &amp; Gestion</div>
+            <div class="team-name">Ms ROSE BRUNELLE</div>
+            <div class="team-contact">Email: rosemalick9@gmail.com</div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="500" data-aos-once="true" class="team-card">
+          <img src="images/jansen.png" alt="Jansen Mihigo">
+          <div class="team-overlay">
+            <div class="team-role">Ingénieur Électronicien</div>
+            <div class="team-name">Mr JANSEN MIHIGO</div>
+            <div class="team-contact">Email: jansenmihigo@gmail.com</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       TESTIMONIAL / ABOUT KIBALI
+  ═══════════════════════════════════════ -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="info-grid">
+
+        <div data-aos="fade-right" data-aos-once="true">
+          <div class="section-label"><span>Kibali Gold Mine</span></div>
+          <h2 style="font-size:clamp(1.4rem,2.5vw,1.85rem);font-weight:700;color:var(--text-dark);margin-bottom:1rem;">
+            Mine d'or combinée <span class="text-gold">open pit et souterraine</span> dans le Haut-Uélé
+          </h2>
+          <p class="text-muted" style="line-height:1.8;margin-bottom:1.5rem;">
+            Province du nord-est de la République démocratique du Congo. Par sa superficie, c'est l'une des plus grandes mines d'Afrique. Elle doit son nom à la rivière Kibali toute proche.
+          </p>
+          <a href="https://www.barrick.com/English/operations/kibali/default.aspx" target="_blank" rel="noopener" class="btn btn-outline">En savoir plus sur Kibali</a>
+        </div>
+
+        <div data-aos="zoom-in-left" data-aos-once="true" class="testimonial-block">
+          <p style="font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.8);margin-bottom:1.5rem;position:relative;z-index:1;">
+            Barrick est un producteur leader d'or et de cuivre. Nous planifions à long terme et investissons continuellement dans une croissance durable — en construisant la société aurifère et cuprifère la plus valorisée au monde.
+          </p>
+          <div style="display:flex;align-items:center;gap:1rem;position:relative;z-index:1;">
+            <img src="images/barrick1.png" alt="Barrick" style="height:2rem;opacity:0.85;filter:brightness(2);">
+            <div>
+              <div style="color:var(--gold);font-weight:600;font-size:0.9rem;">Barrick Gold Corporation</div>
+              <div style="color:rgba(255,255,255,0.5);font-size:0.78rem;">Toronto, Canada</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       NEWS
+  ═══════════════════════════════════════ -->
+  <section class="section bg-sand" id="news">
+    <div class="container">
+
+      <div data-aos="fade-up" data-aos-once="true" class="text-center" style="max-width:540px;margin:0 auto 3rem;">
+        <div class="gold-line mx-auto"></div>
+        <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--text-dark);margin-bottom:0.5rem;">Dernières Actualités</h2>
+        <p class="text-muted" style="font-size:0.9rem;">Les développements récents de Kibali et Barrick dans le monde</p>
+      </div>
+
+      <div data-aos="fade-up" data-aos-once="true" class="news-grid">
+
+        <!-- Main article -->
+        <div>
+          <img class="news-main-img" src="images/engineeringmining.png" alt="Mining Engineering">
+          <span class="news-tag">Actualité</span>
+          <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-dark);margin-bottom:0.6rem;line-height:1.4;">
+            Solutions technologiques innovantes pour la gestion minière
+          </h3>
+          <p class="text-muted" style="font-size:0.875rem;line-height:1.7;margin-bottom:1rem;">
+            L'intégration de systèmes intelligents dans les opérations d'extraction permet d'optimiser le rendement tout en réduisant l'impact environnemental à Kibali.
+          </p>
+          <a href="https://www.barrick.com/English/operations/kibali/default.aspx" style="color:var(--gold);font-weight:600;font-size:0.85rem;">Lire la suite →</a>
+        </div>
+
+        <!-- Side articles -->
+        <div style="display:flex;flex-direction:column;justify-content:space-between;">
+
+          <div class="news-item">
+            <img class="news-thumb" src="images/new11.png" alt="News 1">
+            <div class="news-item-text">
+              <span class="news-tag" style="font-size:0.65rem;">Communiqué</span>
+              <h3>Barrick's 2025 Annual Information Form et Documents Disponibles</h3>
+              <p>Des rapports techniques pour Pueblo Viejo Mine et la Kibali Gold Mine ont été déposés...</p>
+            </div>
+          </div>
+
+          <div class="news-item">
+            <img class="news-thumb" src="images/new22.png" alt="News 2">
+            <div class="news-item-text">
+              <span class="news-tag" style="font-size:0.65rem;">Finance</span>
+              <h3>Barrick annonce une nouvelle politique de dividendes</h3>
+              <p>Au T4 2025, la nouvelle politique de dividendes cible une distribution optimisée...</p>
+            </div>
+          </div>
+
+          <div class="news-item">
+            <img class="news-thumb" src="images/new3.png" alt="News 3">
+            <div class="news-item-text">
+              <span class="news-tag" style="font-size:0.65rem;">Technologie</span>
+              <h3>Numérisation des processus RH dans les opérations minières</h3>
+              <p>L'automatisation de la gestion des ressources humaines améliore la conformité fiscale...</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <h2><span>Kibali</span> Gold Mine</h2>
+          <p>Plateforme de télé-déclaration IPR pour les employeurs opérant en République Démocratique du Congo, développée en partenariat avec Barrick Gold Corporation.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#team">Équipe</a></li>
+            <li><a href="#news">Actualités</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <ul>
+            <li><a href="https://dgi.gouv.cd/impot-professionnel-sur-les-remunerations/">Documentation IPR</a></li>
+            <li><a href="https://dgi.gouv.cd/" target="_blank">Portail DGI</a></li>
+            <li><a href="https://cnss.cd/?page_id=1721" target="_blank">Guide CNSS</a></li>
+            <li><a href="https://www.barrick.com/English/operations/kibali/default.aspx" target="_blank">Barrick – Kibali</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p style="font-size:0.82rem;margin-bottom:0.75rem;">Recevez les mises à jour réglementaires et les nouvelles de la mine.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Votre email">
+            <button class="btn btn-gold" style="padding:0.55rem 1.2rem;font-size:0.8rem;"> <a href="https://forms.gle/jNNufij8Ytuwcea68" target="_blank">S'abonner</a> </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Kibali Gold Mine / Barrick Gold Corporation. Tous droits réservés.</span>
+        <span>Province du Haut-Uélé, République Démocratique du Congo</span>
+        <span>@beatless</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, offset: 60 });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
