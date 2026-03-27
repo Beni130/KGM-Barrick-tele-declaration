@@ -1,0 +1,1 @@
+# KGM-Barrick-tele-declaration
